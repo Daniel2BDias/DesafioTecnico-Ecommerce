@@ -1,11 +1,13 @@
 import styled from "styled-components";
 
 export const StyledProductList = styled.section`
+  position: relative;
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
   align-items: center;
   padding: 1rem;
+  padding-bottom: 10dvh;
   font-size: 1em;
   background-color: white;
   border-radius: 10px;

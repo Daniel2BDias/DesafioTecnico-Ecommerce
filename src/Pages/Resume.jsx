@@ -27,8 +27,10 @@ export default function Resume ({cart}) {
               descricao={p.descricao}
             />
           ))}
+          <Footer>
           {cart.length === 0 ? "Nada para Pagar!" : <p>Nº de Itens: {cart.length} Total: R$ {total()}</p>}
           {cart.length === 0 ? "" : <button>Pagar!!</button>}
+          </Footer>
         </ProductList>
         
     </Main>
@@ -46,7 +48,7 @@ const Main = styled.main`
 
   button {
     width: 30%;
-    heigth: 60px;
+    heigth: 80px;
     border: none;
     border-radius: 10px;
     background-color: purple;
@@ -69,4 +71,17 @@ const Main = styled.main`
   ::-webkit-scrollbar-track {
       background-color: #cc99ff;
   }
+`;
+
+const Footer = styled.div`
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 10px;
+  align-items: center;
+  height: 10dvh;
+  width: 85%;
+  background-color: white;
+  bottom: 5dvh;
 `;
