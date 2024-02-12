@@ -8,7 +8,6 @@ const StyledHeader = styled.header`
   left: 0;
   width: 100%;
   height: 10dvh;
-  border-radius: 0 0 1em 1em;
   background: linear-gradient(
     to right,
     white,
