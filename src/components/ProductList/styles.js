@@ -21,7 +21,7 @@ export const StyledMessage = styled.section`
   justify-content: center;
   align-items: center;
   background-color: white;
-  border-radius: 10px;
+  border-radius: 20px;
   font-size: 130%;
   box-shadow: 1px 1px 3px 1px black;
   width: 90%;

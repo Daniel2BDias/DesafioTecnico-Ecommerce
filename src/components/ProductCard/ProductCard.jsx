@@ -1,4 +1,4 @@
-import { StyledProductCard, ProductCategory } from "./styles.js";
+import { StyledProductCard, ProductCategory, StyledImage, StyledParagraph } from "./styles.js";
 
 export default function ProductCard({
   imagem,
@@ -6,14 +6,16 @@ export default function ProductCard({
   descricao,
   preco,
   categoria,
+  id, 
+  navigate
 }) {
   return (
-    <StyledProductCard $categoria={categoria}>
+    <StyledProductCard $categoria={categoria} onClick={() => navigate(`/product/${id}/`)}>
       <ProductCategory $categoria={categoria}>{categoria === 2 ? "Vestimenta" : "Calçado"}</ProductCategory>
-      <img src={imagem} />
-      <p>{nome}</p>
-      <p>{descricao}</p>
-      <p>R$ {preco.toFixed(2)}</p>
+      <StyledImage src={imagem} />
+      <StyledParagraph>{nome}</StyledParagraph>
+      <StyledParagraph>{descricao}</StyledParagraph>
+      <StyledParagraph>R$ {preco.toFixed(2)}</StyledParagraph>
     </StyledProductCard>
   );
 }

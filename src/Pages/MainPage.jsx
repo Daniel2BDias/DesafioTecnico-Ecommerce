@@ -4,10 +4,11 @@ import { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard/ProductCard.jsx";
 import TextBox from "../components/ProductList/TextBox.jsx";
 import { APIcall } from "../services/API.js";
+import { useNavigate } from "react-router-dom";
 
 export default function MainPage() {
   const [products, setProducts] = useState(undefined);
-  console.log(products);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getProducts();
@@ -16,7 +17,7 @@ export default function MainPage() {
   async function getProducts () {
       const response = await APIcall.useAPIgetProducts();
       if(typeof response === 'string'){
-        alert(`${response}`);
+        alert(`${response.message}`);
       }
       setProducts(response.data);
   };
@@ -32,11 +33,13 @@ export default function MainPage() {
           {products.map((p) => (
             <ProductCard
               key={p.id}
+              id={p.id}
               categoria={p.categoria_id}
               imagem={p.imagem}
               nome={p.nome}
               preco={p.preco}
               descricao={p.descricao}
+              navigate={navigate}
             />
           ))}
         </ProductList>
@@ -55,7 +58,7 @@ const Main = styled.main`
   background-color: #cbc3e3;
 
   ::-webkit-scrollbar {
-    width: .5rem
+    width: .5rem;
   }
 
   ::-webkit-scrollbar-thumb {

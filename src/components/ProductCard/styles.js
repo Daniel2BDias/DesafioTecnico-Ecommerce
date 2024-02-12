@@ -15,18 +15,6 @@ export const StyledProductCard = styled.fieldset`
   width: 40%;
   margin: 1rem 1px;
 
-  p {
-    margin-bottom: 3px;
-  }
-
-  img {
-    border-radius: 30px;
-    object-fit: cover;
-    width: 90%;
-    height: 200px;
-    margin-bottom: 5px;
-  }
-
   @media (max-width: 800px) {
     width: 90%;
   }
@@ -36,4 +24,16 @@ export const ProductCategory = styled.legend`
   font-size: 1.5rem;
   color: ${(props) => (props.$categoria === 1 ? "blue" : "orange")};
   text-align: justify;
+`;
+
+export const StyledImage = styled.img`
+  border-radius: 30px;
+  object-fit: cover;
+  width: 90%;
+  height: 200px;
+  margin-bottom: 5px;
+`;
+
+export const StyledParagraph = styled.p`
+  margin-bottom: 3px;
 `;

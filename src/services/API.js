@@ -6,4 +6,8 @@ async function useAPIgetProducts () {
     return await axios.get(`${baseURL}/produtos/`)
 };
 
-export const APIcall = { useAPIgetProducts };
+async function useAPIgetProduct (id) {
+    return await axios.get(`${baseURL}/produtos?id=${id}`)
+};
+
+export const APIcall = { useAPIgetProducts, useAPIgetProduct };
