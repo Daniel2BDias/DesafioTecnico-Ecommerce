@@ -25,7 +25,7 @@ function App() {
       <ShoppingCart cartState={cartState} cart={cart} setCart={setCart} setCartState={setCartState}/>
           <Routes>
             <Route path="/" element={<MainPage />}></Route>
-            <Route path="/product/:id/" element={<ProductOverview setCart={setCart}/>}></Route>
+            <Route path="/product/:id/" element={<ProductOverview setCart={setCart} cart={cart}/>}></Route>
             <Route path="/resume" element={<Resume cart={cart} />}></Route>
           </Routes>
       </BrowserRouter>

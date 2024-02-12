@@ -27,7 +27,7 @@ export default function Resume ({cart}) {
               descricao={p.descricao}
             />
           ))}
-          {cart.length === 0 ? "Nada para Pagar!" : <p>Total: R$ {total()}</p>}
+          {cart.length === 0 ? "Nada para Pagar!" : <p>Nº de Itens: {cart.length} Total: R$ {total()}</p>}
           {cart.length === 0 ? "" : <button>Pagar!!</button>}
         </ProductList>
         

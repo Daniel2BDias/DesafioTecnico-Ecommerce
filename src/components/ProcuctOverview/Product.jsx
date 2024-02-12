@@ -1,6 +1,6 @@
 import { ProductImage, StyledButton, StyledParagraph, StyledProduct, Wrapper } from "./styles.js";
 
-export default function Product ({product, imagem, nome, descricao, preco, categoria, setCart}) {
+export default function Product ({product, imagem, nome, descricao, preco, categoria, setCart, cart}) {
     
     return (
         <StyledProduct>
@@ -10,7 +10,7 @@ export default function Product ({product, imagem, nome, descricao, preco, categ
                 <StyledParagraph>Nome: {nome}</StyledParagraph>
                 <StyledParagraph>Sobre: {descricao}</StyledParagraph>
                 <StyledParagraph>R$ {preco.toFixed(2)}</StyledParagraph>
-                <StyledButton onClick={() => setCart(prev => [...prev, product])}>Adicionar ao Carrinho</StyledButton>
+                <StyledButton onClick={() => { if(cart.includes(product)) { return };setCart(prev => [...prev, product])}}>Adicionar ao Carrinho</StyledButton>
             </Wrapper>
         </StyledProduct>
     );

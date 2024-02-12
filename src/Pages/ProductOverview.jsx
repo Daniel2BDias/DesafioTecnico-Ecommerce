@@ -5,7 +5,7 @@ import { APIcall } from "../services/API.js";
 import { useParams } from "react-router-dom";
 import TextBox from "../components/ProductList/TextBox.jsx";
 
-export default function ProductOverview({setCart}) {
+export default function ProductOverview({setCart, cart}) {
   const [product, setProduct] = useState(undefined);
   const { id } = useParams();
 
@@ -29,6 +29,7 @@ export default function ProductOverview({setCart}) {
         <Product
           product={product}
           setCart={setCart}
+          cart={cart}
           imagem={product.imagem}
           nome={product.nome}
           descricao={product.descricao}
