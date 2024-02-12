@@ -17,6 +17,7 @@ export const StyledShoppingCart = styled.div`
     max-width: 350px;
     height: 90dvh;
     padding: 15px;
+    padding-bottom: 10dvh;
     overflow-Y: scroll;
     overflow-X: hidden;
     
