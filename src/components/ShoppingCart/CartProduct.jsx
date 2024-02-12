@@ -1,7 +1,6 @@
 import { StyledProduct } from "./styles";
 
 export default function CartProduct({ productInfo, setCart, cart }) {
-  console.log({ cart, productInfo });
 
   return (
     <>

@@ -6,6 +6,7 @@ import Header from "./components/Header/Header.jsx";
 import ProductOverview from "./Pages/ProductOverview.jsx";
 import ShoppingCart from "./components/ShoppingCart/ShoppingCart.jsx";
 import { useState } from "react";
+import Resume from "./Pages/Resume.jsx";
 
 function App() {
   const [cartState, setCartState] = useState(false);
@@ -21,10 +22,11 @@ function App() {
     <GlobalStyles />
       <BrowserRouter>
       <Header cartController={cartController}/>
-      <ShoppingCart cartState={cartState} cart={cart} setCart={setCart}/>
+      <ShoppingCart cartState={cartState} cart={cart} setCart={setCart} setCartState={setCartState}/>
           <Routes>
             <Route path="/" element={<MainPage />}></Route>
             <Route path="/product/:id/" element={<ProductOverview setCart={setCart}/>}></Route>
+            <Route path="/resume" element={<Resume cart={cart} />}></Route>
           </Routes>
       </BrowserRouter>
     </>

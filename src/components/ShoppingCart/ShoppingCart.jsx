@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import CartProduct from "./CartProduct";
 import { EmptyMessage, StyledShoppingCart } from "./styles";
+import { useNavigate } from "react-router-dom";
 
-export default function ShoppingCart({ cartState, cart, setCart }) {
+export default function ShoppingCart({ cartState, cart, setCart, setCartState }) {
+    const navigate = useNavigate();
   
   return (
     <ScrollbarStyles>
@@ -12,7 +14,7 @@ export default function ShoppingCart({ cartState, cart, setCart }) {
         ) : (
           cart.map((p, i) => <CartProduct key={i} productInfo={p} setCart={setCart} cart={cart}/>)
         )}
-        {cart.length === 0 ? "" : <button>Finalizar!</button>}
+        {cart.length === 0 ? "" : <button onClick={() => { navigate("/resume"); setCartState(!cartState)}}>Finalizar!</button>}
       </StyledShoppingCart>
     </ScrollbarStyles>
   );

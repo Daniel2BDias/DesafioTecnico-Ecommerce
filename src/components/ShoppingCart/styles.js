@@ -47,6 +47,7 @@ export const StyledProduct = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 10px;
 
     div {
         display: flex;
