@@ -4,37 +4,42 @@ import ProductCard from "../components/ProductCard/ProductCard";
 import { useContext } from "react";
 import CartContext from "../contexts/CartContext";
 
-export default function Resume () {
-const { cart } = useContext(CartContext);
-    function total () {
-        let total = 0;
-        for(let i = 0; i < cart.length; i++){
-            total+=cart[i].preco;
-        }
-
-        return total.toFixed(2);
+export default function Resume() {
+  const { cart } = useContext(CartContext);
+  function total() {
+    let total = 0;
+    for (let i = 0; i < cart.length; i++) {
+      total += cart[i].preco;
     }
-    return (
-        <Main>
-        <ProductList>
-          {cart.map((p, i) => (
-            <ProductCard
-              safeguard={true}
-              key={i}
-              id={p.id}
-              categoria={p.categoria_id}
-              imagem={p.imagem}
-              nome={p.nome}
-              preco={p.preco}
-              descricao={p.descricao}
-            />
-          ))}
-          <Footer>
-          {cart.length === 0 ? "Nada para Pagar!" : <p>Nº de Itens: {cart.length} Total: R$ {total()}</p>}
+
+    return total.toFixed(2);
+  }
+  return (
+    <Main>
+      <ProductList>
+        {cart.map((p, i) => (
+          <ProductCard
+            safeguard={true}
+            key={i}
+            id={p.id}
+            categoria={p.categoria_id}
+            imagem={p.imagem}
+            nome={p.nome}
+            preco={p.preco}
+            descricao={p.descricao}
+          />
+        ))}
+        <Footer>
+          {cart.length === 0 ? (
+            "Nada para Pagar!"
+          ) : (
+            <p>
+              Nº de Itens: {cart.length} Total: R$ {total()}
+            </p>
+          )}
           {cart.length === 0 ? "" : <button>Pagar!!</button>}
-          </Footer>
-        </ProductList>
-        
+        </Footer>
+      </ProductList>
     </Main>
   );
 }
