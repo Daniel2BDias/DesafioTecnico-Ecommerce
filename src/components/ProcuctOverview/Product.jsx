@@ -4,6 +4,13 @@ import { ProductImage, StyledButton, StyledParagraph, StyledProduct, Wrapper } f
 export default function Product ({product, imagem, nome, descricao, preco, categoria, setCart, cart}) {
     const navigate = useNavigate();
 
+    function sendToCart (product) {
+        product.unique = Math.random(0, 1000000);
+        console.log(product)
+        setCart((prev) => [...prev, product]);
+        navigate("/");
+    };
+
     return (
         <StyledProduct>
             <ProductImage src={imagem}/>
@@ -12,7 +19,7 @@ export default function Product ({product, imagem, nome, descricao, preco, categ
                 <StyledParagraph>Nome: {nome}</StyledParagraph>
                 <StyledParagraph>Sobre: {descricao}</StyledParagraph>
                 <StyledParagraph>R$ {preco.toFixed(2)}</StyledParagraph>
-                <StyledButton onClick={() => { if(cart.includes(product)) { return }; setCart(prev => [...prev, product]); navigate("/")}}>Adicionar ao Carrinho</StyledButton>
+                <StyledButton onClick={() => sendToCart(product)}>Adicionar ao Carrinho</StyledButton>
             </Wrapper>
         </StyledProduct>
     );

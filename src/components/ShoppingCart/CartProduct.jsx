@@ -1,7 +1,11 @@
 import { StyledProduct } from "./styles";
 
 export default function CartProduct({ productInfo, setCart, cart }) {
- 
+  
+  function removeFromCart (unique) {
+      setCart(cart.filter((p) => p.unique !== unique));
+  };
+
   return (
     <>
       <StyledProduct>
@@ -10,7 +14,7 @@ export default function CartProduct({ productInfo, setCart, cart }) {
           <p>{productInfo.nome}</p>
           <p>R$ {productInfo.preco.toFixed(2)}</p>
           <p
-            onClick={() => setCart(cart.filter((p) => productInfo.id !== p.id))}
+            onClick={() => removeFromCart(productInfo.unique)}
           >
             Excluir Item
           </p>
