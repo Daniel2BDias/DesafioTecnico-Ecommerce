@@ -1,13 +1,15 @@
 import styled from "styled-components";
 import Product from "../components/ProcuctOverview/Product.jsx";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { APIcall } from "../services/API.js";
 import { useParams } from "react-router-dom";
 import TextBox from "../components/ProductList/TextBox.jsx";
+import CartContext from "../contexts/CartContext.jsx";
 
-export default function ProductOverview({setCart, cart}) {
+export default function ProductOverview() {
   const [product, setProduct] = useState(undefined);
   const { id } = useParams();
+  const { cart, setCart } = useContext(CartContext); 
 
   useEffect(() => {
     getproduct(id);

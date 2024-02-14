@@ -5,30 +5,30 @@ import MainPage from "./Pages/MainPage.jsx";
 import Header from "./components/Header/Header.jsx";
 import ProductOverview from "./Pages/ProductOverview.jsx";
 import ShoppingCart from "./components/ShoppingCart/ShoppingCart.jsx";
-import { useState } from "react";
 import Resume from "./Pages/Resume.jsx";
+import { CartProvider } from "./contexts/CartContext.jsx";
 
 function App() {
-  const [cartState, setCartState] = useState(false);
-  const [cart, setCart] = useState([]);
-
-  function cartController () {
-        setCartState(!cartState);
-  };
 
   return (
     <>
-    <ResetStyles />
-    <GlobalStyles />
-      <BrowserRouter>
-      <Header cartController={cartController}/>
-      <ShoppingCart cartState={cartState} cart={cart} setCart={setCart} setCartState={setCartState}/>
+      <ResetStyles />
+      <GlobalStyles />
+      <CartProvider>
+        <BrowserRouter>
+          <Header />
+          <ShoppingCart
+          />
           <Routes>
             <Route path="/" element={<MainPage />}></Route>
-            <Route path="/product/:id/" element={<ProductOverview setCart={setCart} cart={cart}/>}></Route>
-            <Route path="/resume" element={<Resume cart={cart} />}></Route>
+            <Route
+              path="/product/:id/"
+              element={<ProductOverview />}
+            ></Route>
+            <Route path="/resume" element={<Resume />}></Route>
           </Routes>
-      </BrowserRouter>
+        </BrowserRouter>
+      </CartProvider>
     </>
   );
 }

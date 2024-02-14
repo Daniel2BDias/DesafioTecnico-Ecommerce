@@ -1,15 +1,13 @@
 import styled from "styled-components";
-import CartProduct from "./CartProduct";
+import CartProduct from "./CartProduct.jsx";
 import { EmptyMessage, StyledShoppingCart } from "./styles";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import CartContext from "../../contexts/CartContext";
 
-export default function ShoppingCart({
-  cartState,
-  cart,
-  setCart,
-  setCartState,
-}) {
+export default function ShoppingCart() {
   const navigate = useNavigate();
+  const {cart, setCart, cartState, setCartState} = useContext(CartContext);
 
   return (
     <ScrollbarStyles>

@@ -1,9 +1,11 @@
 import styled from "styled-components";
 import ProductList from "../components/ProductList/ProductList";
 import ProductCard from "../components/ProductCard/ProductCard";
+import { useContext } from "react";
+import CartContext from "../contexts/CartContext";
 
-export default function Resume ({cart}) {
-
+export default function Resume () {
+const { cart } = useContext(CartContext);
     function total () {
         let total = 0;
         for(let i = 0; i < cart.length; i++){
