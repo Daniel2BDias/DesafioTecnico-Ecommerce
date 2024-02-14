@@ -21,7 +21,7 @@ export const StyledShoppingCart = styled.div`
     overflow-Y: scroll;
     overflow-X: hidden;
     
-    transition: ${props => props.$cartState ? "opacity 1.65s, z-index .7s" : "opacity 0.7s, z-index 1.65s"};
+    transition: ${props => props.$cartState ? "opacity 1.65s, z-index .2s" : "opacity 0.7s, z-index 1.65s"};
 
     button {
         width: 60%;
