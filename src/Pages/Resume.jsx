@@ -47,18 +47,6 @@ const Main = styled.main`
   height: 90dvh;
   margin-top: 10dvh;
   background-color: #cbc3e3;
-
-  button {
-    width: 30%;
-    heigth: 80px;
-    border: none;
-    border-radius: 10px;
-    background-color: purple;
-    color: black;
-
-    &:active {
-        transform: scale(0.95);
-    }
   }
 
   ::-webkit-scrollbar {
@@ -78,12 +66,24 @@ const Main = styled.main`
 const Footer = styled.div`
   position: fixed;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   border-radius: 10px;
   align-items: center;
   height: 10dvh;
   width: 85%;
   background-color: white;
-  bottom: 5dvh;
+  bottom: 4.98dvh;
+
+  button {
+    width: 30%;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    background-color: purple;
+    font-size: 1rem;
+    color: black;
+
+    &:active {
+        transform: scale(0.95);
+    }
 `;
