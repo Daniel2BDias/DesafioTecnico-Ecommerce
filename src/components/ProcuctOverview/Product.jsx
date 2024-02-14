@@ -6,7 +6,6 @@ export default function Product ({product, imagem, nome, descricao, preco, categ
 
     function sendToCart (product) {
         product.unique = Math.random(0, 1000000);
-        console.log(product)
         setCart((prev) => [...prev, product]);
         navigate("/");
     };
