@@ -9,18 +9,19 @@ import CartContext from "../contexts/CartContext.jsx";
 export default function ProductOverview() {
   const [product, setProduct] = useState(undefined);
   const { id } = useParams();
-  const { cart, setCart } = useContext(CartContext); 
+  const { cart, setCart } = useContext(CartContext);
 
   useEffect(() => {
     getproduct(id);
   }, []);
 
   async function getproduct(id) {
-    const response = await APIcall.useAPIgetProduct(id);
-    if (response.message) {
-      alert(`${response.message}`);
+    try {
+      const response = await APIcall.useAPIgetProduct(id);
+      setProduct(response.data[0]);
+    } catch (error) {
+      alert(`${error.message}`);
     }
-    setProduct(response.data[0]);
   }
 
   return (

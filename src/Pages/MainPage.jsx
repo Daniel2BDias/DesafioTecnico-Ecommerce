@@ -14,13 +14,15 @@ export default function MainPage() {
     getProducts();
   }, []);
 
-  async function getProducts () {
+  async function getProducts() {
+    try
+    {
       const response = await APIcall.useAPIgetProducts();
-      if(typeof response === 'string'){
-        alert(`${response.message}`);
-      }
       setProducts(response.data);
-  };
+    } catch (error) {
+      alert(`${error.message}`);
+    }  
+  }
 
   return (
     <Main>
@@ -29,20 +31,20 @@ export default function MainPage() {
       ) : products.length === 0 ? (
         <TextBox text={"Nenhum Item Encontrado"} />
       ) : (
-        <ProductList>
-          {products.map((p) => (
-            <ProductCard
-              key={p.id}
-              id={p.id}
-              categoria={p.categoria_id}
-              imagem={p.imagem}
-              nome={p.nome}
-              preco={p.preco}
-              descricao={p.descricao}
-              navigate={navigate}
-            />
-          ))}
-        </ProductList>
+          <ProductList>
+            {products.map((p) => (
+              <ProductCard
+                key={p.id}
+                id={p.id}
+                categoria={p.categoria_id}
+                imagem={p.imagem}
+                nome={p.nome}
+                preco={p.preco}
+                descricao={p.descricao}
+                navigate={navigate}
+              />
+            ))}
+          </ProductList>
       )}
     </Main>
   );
@@ -58,7 +60,7 @@ const Main = styled.main`
   background-color: #cbc3e3;
 
   ::-webkit-scrollbar {
-    width: .5rem;
+    width: 0.5rem;
   }
 
   ::-webkit-scrollbar-thumb {
@@ -67,6 +69,6 @@ const Main = styled.main`
   }
 
   ::-webkit-scrollbar-track {
-      background-color: #cc99ff;
+    background-color: #cc99ff;
   }
 `;
