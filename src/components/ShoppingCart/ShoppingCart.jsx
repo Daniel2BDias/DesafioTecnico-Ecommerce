@@ -63,6 +63,7 @@ const ButtonContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  border-left: solid 1px black;
   bottom: 0;
   right: 0;
   width: 100%;
