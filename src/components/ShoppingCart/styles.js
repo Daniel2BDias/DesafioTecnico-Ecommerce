@@ -12,6 +12,7 @@ export const StyledShoppingCart = styled.div`
     justify-content: flex-start;
     background-color: white;
     border-radius: 20px 0 0 20px;
+    border: solid 1px black;
     text-align: center;
     width: 100%;
     max-width: 350px;
@@ -25,7 +26,7 @@ export const StyledShoppingCart = styled.div`
 
     button {
         width: 60%;
-        height: 60px !important;
+        height: 50px;
         border-radius: 15px;
         border: none;
         color: black;
@@ -46,9 +47,26 @@ export const EmptyMessage = styled.p`
 
 export const StyledProduct = styled.div`
     display: flex;
+    width: 100%;
     justify-content: center;
+    border: solid 1px black;
+    border-radius: 10px;
     align-items: center;
     margin: 10px;
+    text-align: center;
+
+    p {
+        margin: 10px;
+    }
+
+    p:last-child {
+        color: red;
+        
+        &:hover {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    }
 
     div {
         display: flex;
@@ -60,5 +78,8 @@ export const StyledProduct = styled.div`
 
     img {
         border-radius: 10px;
+        margin: 15px;
+        width: 50%;
+        height: 140px;
     }
 `
